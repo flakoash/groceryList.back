@@ -1,0 +1,48 @@
+function log(message) {
+    console.log(message);
+}
+
+let message: string = 'TEST asd';
+
+enum Color {Red = 0 , Green = 1, Blue = 2}
+
+let c:Color;
+
+c = Color.Green
+
+log(message);
+
+
+let log2 = function(message) {
+    console.log(message);
+}
+
+let log3 = (message) => {
+    console.log(message);
+}
+
+
+interface Point_int {
+    x: number,
+    y: number
+}
+
+let p1:Point_int;
+
+p1.x = 10
+
+
+class Point {
+    constructor(private _x?:number, private _y?: number) {
+    }
+
+    draw() {
+        console.log(this._x + ',' + this._y)
+    }
+    get x() {
+        return this._x
+    }
+    set x(value){
+        this._x = value
+    }
+}
