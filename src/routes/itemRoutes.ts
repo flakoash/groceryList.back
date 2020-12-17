@@ -6,7 +6,7 @@ import { Item } from '../models/itemModel';
 import {validateToken} from "./authRoutes";
 
 const router = Router();
-let itemService = new ItemService(Item)
+const itemService = new ItemService(Item)
 
 router.get('/', async (req: Request, res: Response) => {
     const {success, result} = await itemService.get();
@@ -23,7 +23,7 @@ router.get('/:id', validateToken,async (req, res) => {
     if(success) {
         if (!result) res.status(404).json({message: 'item not found'});
         res.status(200).json(result);
-    } 
+    }
     else {
         res.status(500).json({message: result.message});
     }
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) => {
     if(success) {
         if (!result) res.status(404).json({message: 'item not found'});
         res.status(200).json(result);
-    } 
+    }
     else{
         res.status(500).json({message: result.message});
     }

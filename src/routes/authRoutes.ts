@@ -13,7 +13,7 @@ class User {
         this._username = value;
     }
     toPlainObj() {
-        let jsonObj = {
+        const jsonObj = {
             username: this._username
         }
         return jsonObj;
@@ -48,7 +48,7 @@ router.post('/refresh', (req: Request, res: Response) => {
     jwt.verify(refreshToken, 'REFRESH_SECRET_KEY_FROM_ENV', undefined, (error:JsonWebTokenError | jwt.NotBeforeError | jwt.TokenExpiredError | null, user)  =>{
         if(error) return res.status(403).json({message: error});
         // generate new token
-        const userObj =  {username: (<User>user).username}
+        const userObj =  {username: (user as User).username}
         const token = jwt.sign(userObj, 'SECRET_KEY_FROM_ENV', {expiresIn: '5m'})
         res.json({accessToken: token})
     })

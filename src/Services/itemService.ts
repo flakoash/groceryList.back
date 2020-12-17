@@ -9,8 +9,8 @@ export default class ItemService {
     public async add(item: ItemInterface) {
         const newItem = new Item(item);
         try {
-            let result = await newItem.save()
-            return {success: true, result: result};
+            const result = await newItem.save()
+            return {success: true, result};
         } catch (error) {
             return {success: false, result: error};
         }
@@ -30,17 +30,16 @@ export default class ItemService {
             const item = await Item.findById(id);
             return {success: true, result: item};
         } catch (error) {
-            console.log(error)
             return {success: false, result: error};
         }
     }
 
     public async edit(id:string, item: ItemInterface) {
         try {
-            const found_item = await Item.findById(id);
-            if(!found_item) return {success: true, result: found_item};
+            const foundItem = await Item.findById(id);
+            if(!foundItem) return {success: true, result: foundItem};
 
-            let result2 = await Item.updateOne({_id: id}, {$set: item})
+            const result2 = await Item.updateOne({_id: id}, {$set: item})
             return {success: true, result: result2};
         } catch (error) {
             return {success: false, result: error};
@@ -49,8 +48,8 @@ export default class ItemService {
 
     public async remove(id:string) {
         try{
-            let result = await Item.deleteOne({_id: id})
-            return {success: true, result: result};
+            const result = await Item.deleteOne({_id: id})
+            return {success: true, result};
         } catch (error) {
             return {success: false, result: error};
         }
