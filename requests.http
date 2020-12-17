@@ -10,18 +10,20 @@ POST http://localhost:3000/item
 content-type: application/json
 
 {
-    "name": "sample 3",
-    "description": "sample description 3"
+    "name": "sample 5",
+    "description": "sample description 5",
+    "price": "10"
 }
 
 ###############################################################
 
-PUT http://localhost:3000/item/5fd9236ba862ce1b1c0925dd
+PUT http://localhost:3000/item/5fda90bb1b7de039544f763c
 content-type: application/json
 
 {
     "name": "sample 2 edited",
-    "description": "sample description 2"
+    "description": "sample description 2",
+    "price": "20"
 }
 
 ###############################################################
