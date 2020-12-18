@@ -11,8 +11,7 @@ content-type: application/json
 
 {
     "name": "sample 5",
-    "description": "sample description 5",
-    "price": "10"
+    "description": "sample description 5"
 }
 
 ###############################################################
@@ -38,3 +37,7 @@ content-type: application/json
 {
     "userName": "user"
 }
+
+##################################################################
+
+GET http://localhost:3000/item/getImage

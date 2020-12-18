@@ -10,13 +10,13 @@ const ItemSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
-    required: false,
-  },
   created_at: {
     type: Date,
     default: Date.now,
+  },
+  productFeatures: {
+    type: Map,
+    of: String,
   },
 });
 
